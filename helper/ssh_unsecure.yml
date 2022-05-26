@@ -1,0 +1,7 @@
+- hosts: all
+  tasks:
+   - lineinfile: state=present dest=/etc/ssh/sshd_config regexp="^PermitRootLogin"  line="PermitRootLogin yes"
+   - lineinfile: state=present dest=/etc/ssh/sshd_config regexp="^PasswordAuthentication"  line="PasswordAuthentication yes"
+   - user: name=ec2-user password="maprpassword" createhome=yes state=present
+   - user: name=root password="maprpassword" createhome=yes state=present
+   - service: name=sshd state=restarted enabled=yes
