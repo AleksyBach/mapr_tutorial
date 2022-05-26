@@ -1,9 +1,9 @@
 - import_playbook: mapr-include-vars.yml
 - name: Install Flume
-  hosts: mapr-flume
+  hosts: mapr_flume
   roles:
     - ../roles/mapr-flume-install
 - name: Uninstall Flume
-  hosts: all:!mapr-flume
+  hosts: all:!mapr_flume
   roles:
     - ../roles/mapr-flume-uninstall

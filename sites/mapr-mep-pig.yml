@@ -1,9 +1,9 @@
 - import_playbook: mapr-include-vars.yml
 - name: Install Pig
-  hosts: mapr-pig
+  hosts: mapr_pig
   roles:
     - ../roles/mapr-pig-install
 - name: Uninstall Pig
-  hosts: all:!mapr-pig
+  hosts: all:!mapr_pig
   roles:
     - ../roles/mapr-pig-uninstall

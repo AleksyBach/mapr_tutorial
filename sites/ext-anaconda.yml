@@ -1,8 +1,8 @@
 - name: Install Anaconda Python
-  hosts: ext-anaconda-python
+  hosts: ext_anaconda_python
   roles:
     - ../roles/ext-anaconda-python
 - name: Set Python Environment in Spark
-  hosts: mapr-spark
+  hosts: mapr_spark
   roles:
     - ../roles/ext-anaconda-python-spark

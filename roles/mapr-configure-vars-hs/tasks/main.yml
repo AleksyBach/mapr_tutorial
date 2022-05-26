@@ -4,7 +4,7 @@
 - name: Get Job History Server
   set_fact: historyserver_item={{ hostvars[item]['ansible_fqdn'] if 'ansible_fqdn' in hostvars[item] else item }}
   with_items:
-    - "{{ groups['mapr-historyserver'] }}"
+    - "{{ groups['mapr_historyserver'] }}"
   register: historyserver_hosts
 
 - name: Make History Server String

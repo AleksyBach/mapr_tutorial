@@ -6,14 +6,14 @@
 - name: Set Oozie Vars
   hosts: all
   vars:
-     num_mysql_hosts: "{{ groups['ext-mysql']|length }}"
+     num_mysql_hosts: "{{ groups['ext_mysql']|length }}"
   roles:
     - {role: ../roles/mapr-oozie-mysql, when: oozie_db_type == 'mysql' and oozie_db_mysql_create_schema_and_user and num_mysql_hosts != '0' }
 - name: Install Oozie
-  hosts: mapr-oozie
+  hosts: mapr_oozie
   roles:
     - ../roles/mapr-oozie-install
 - name: Uninstall Oozie
-  hosts: all:!mapr-oozie
+  hosts: all:!mapr_oozie
   roles:
     - ../roles/mapr-oozie-uninstall

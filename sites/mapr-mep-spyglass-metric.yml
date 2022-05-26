@@ -1,34 +1,34 @@
 - import_playbook: mapr-include-vars.yml
 - name: Install MapR collectd
-  hosts: mapr-collectd
+  hosts: mapr_collectd
   roles:
     - ../roles/mapr-collectd-install
 - name: Uninstall MapR collectd
-  hosts: all:!mapr-collectd
+  hosts: all:!mapr_collectd
   roles:
     - ../roles/mapr-collectd-uninstall
 - name: Install Custom OpenTSDB
-  hosts: mapr-opentsdb-custom
+  hosts: mapr_opentsdb_custom
   roles:
     - ../roles/mapr-opentsdb-custom-install
 - name: Install MapR OpenTSDB
-  hosts: mapr-opentsdb
+  hosts: mapr_opentsdb
   roles:
     - ../roles/mapr-opentsdb-install
 - name: Uninstall MapR OpenTSDB
-  hosts: all:!mapr-opentsdb:!mapr-opentsdb-custom
+  hosts: all:!mapr_opentsdb:!mapr_opentsdb_custom
   roles:
     - ../roles/mapr-opentsdb-uninstall
 - name: Install MapR Grafana
-  hosts: mapr-grafana
+  hosts: mapr_grafana
   roles:
     - ../roles/mapr-grafana-install
     - { role: ../roles/mapr-grafana-customssl, when: https_custom_certs_enabled }
 - name: Uninstall MapR Grafana
-  hosts: all:!mapr-grafana
+  hosts: all:!mapr_grafana
   roles:
     - ../roles/mapr-grafana-uninstall
 - name: MapR Configure Metrics Monitoring
-  hosts: mapr-collectd
+  hosts: mapr_collectd
   roles:
     - ../roles/mapr-metric-monitoring-configure

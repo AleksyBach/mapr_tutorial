@@ -4,18 +4,18 @@
   roles:
     - ../roles/mapr-configure-vars-zk
 - name: Install HBase CLI
-  hosts: mapr-hbase-cli
+  hosts: mapr_hbase_cli
   roles:
     - ../roles/mapr-hbase-cli-install
 - name: Install HBase REST and Thrift Server
-  hosts: mapr-hbase-thrift-rest
+  hosts: mapr_hbase_thrift_rest
   roles:
     - ../roles/mapr-hbase-thrift-rest-install
 - name: Uninstall HBase REST and Thrift Server
-  hosts: all:!mapr-hbase-thrift-rest
+  hosts: all:!mapr_hbase_thrift_rest
   roles:
     - ../roles/mapr-hbase-thrift-rest-uninstall
 - name: Uninstall HBase CLI
-  hosts: all:!mapr-hbase-cli
+  hosts: all:!mapr_hbase_cli
   roles:
     - ../roles/mapr-hbase-cli-uninstall

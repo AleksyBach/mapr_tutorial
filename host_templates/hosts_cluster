@@ -13,184 +13,184 @@ ansible_become=yes
 [common]
 10.0.0.xxx
 
-[mapr-core]
+[mapr_core]
 10.0.0.xxx
 
 # Zookeeper
-[mapr-zookeeper]
+[mapr_zookeeper]
 10.0.0.xxx
 
 # Contains MapR FileServer (MFS)
-[mapr-fileserver]
+[mapr_fileserver]
 10.0.0.xxx
 
 # Container Location DataBase
-[mapr-cldb]
+[mapr_cldb]
 10.0.0.xxx
 
 # Gateway for Streams and MapR-DB
-[mapr-gateway]
+[mapr_gateway]
 10.0.0.xxx
 
-[mapr-mastgateway]
+[mapr_mastgateway]
 10.0.0.xxx
 
 
 # MapR Control System
-[mapr-mcs]
+[mapr_mcs]
 10.0.0.xxx
 
 # YARN resource manager
-[mapr-resourcemanager]
+[mapr_resourcemanager]
 10.0.0.xxx
 
 # Contains YARN Node Manager
-[mapr-nodemanager]
+[mapr_nodemanager]
 10.0.0.xxx
 
 
 # Job History Server, IMPORTANT: only one
-[mapr-historyserver]
+[mapr_historyserver]
 10.0.0.xxx
 
 
 # MySQL, required for Hive MetaStore and Oozie, IMPORTANT: only one
-[ext-mysql]
+[ext_mysql]
 10.0.0.xxx
 
 # Spark on YARN
-[mapr-spark-yarn]
+[mapr_spark_yarn]
 10.0.0.xxx
 
 # Spark ThriftServer
-[mapr-spark-thriftserver]
+[mapr_spark_thriftserver]
 10.0.0.xxx
 
 # Spark HistoryServer
-[mapr-spark-historyserver]
+[mapr_spark_historyserver]
 10.0.0.xxx
 
 # MapR Fuse Posix Client Basic
-[mapr-posix-client-basic]
+[mapr_posix_client_basic]
 
 # MapR Fuse Posix Client Platinum
-[mapr-posix-client-platinum]
+[mapr_posix_client_platinum]
 
 # NFS
-[mapr-nfs-v3]
+[mapr_nfs_v3]
 10.0.0.xxx
 
 # Apache Drill
-[mapr-drill-standalone]
+[mapr_drill_standalone]
 10.0.0.xxx
 
 # Apache Drill
-[mapr-drill-yarn]
+[mapr_drill_yarn]
 10.0.0.xxx
 
 # Flume
-[mapr-flume]
+[mapr_flume]
 10.0.0.xxx
 
 # HBase CLI
-[mapr-hbase-cli]
+[mapr_hbase_cli]
 10.0.0.xxx
 
 # HBase REST and Thrift
-[mapr-hbase-thrift-rest]
+[mapr_hbase_thrift_rest]
 10.0.0.xxx
 
 # Hive CLI
-[mapr-hive-cli]
+[mapr_hive_cli]
 10.0.0.xxx
 
 # Hive Meta Store
-[mapr-hive-metastore]
+[mapr_hive_metastore]
 10.0.0.xxx
 
 # Hive Server2
-[mapr-hive-server2]
+[mapr_hive_server2]
 10.0.0.xxx
 
 # Hive HCatalog
-[mapr-hive-hcatalog]
+[mapr_hive_hcatalog]
 10.0.0.xxx
 
 # Hive WebHCat
-[mapr-hive-webhcat]
+[mapr_hive_webhcat]
 10.0.0.xxx
 
 # HttpFS
-[mapr-httpfs]
+[mapr_httpfs]
 10.0.0.xxx
 
-[mapr-hue]
+[mapr_hue]
 # 10.0.0.xxx
 
 # Sqoop1
-[mapr-sqoop1]
+[mapr_sqoop1]
 10.0.0.xxx
 
 # Sqoop2 Server
-[mapr-sqoop2-server]
+[mapr_sqoop2_server]
 10.0.0.xxx
 
 # Sqoop2 Client
-[mapr-sqoop2-client]
+[mapr_sqoop2_client]
 10.0.0.xxx
 
 # Pig
-[mapr-pig]
+[mapr_pig]
 10.0.0.xxx
 
 # Oozie
-[mapr-oozie]
+[mapr_oozie]
 10.0.0.xxx
 
 # File Migrate Service
-[mapr-filemigrate]
+[mapr_filemigrate]
 10.0.0.xxx
 
-[mapr-impala-server]
+[mapr_impala_server]
 
-[mapr-impala-catalog]
+[mapr_impala_catalog]
 
-[mapr-impala-statestore]
+[mapr_impala_statestore]
 
-[mapr-kafka-connect-jdbc]
+[mapr_kafka_connect_jdbc]
 
-[mapr-kafka-rest]
+[mapr_kafka_rest]
 
-[mapr-kafka-ksql]
+[mapr_kafka_ksql]
 
-[mapr-data-access-gateway]
+[mapr_data_access_gateway]
 
 
 # CollectD
-[mapr-collectd:children]
-mapr-core
+[mapr_collectd:children]
+mapr_core
 
 # OpenTSDB
-[mapr-opentsdb]
+[mapr_opentsdb]
 10.0.0.xxx
 
 # Custom OpenTSDB, do NOT install on same node as mapr-opentsdb
-[mapr-opentsdb-custom]
+[mapr_opentsdb_custom]
 10.0.0.xxx
 
 # Grafana
-[mapr-grafana]
+[mapr_grafana]
 10.0.0.xxx
 
 # FluentD
-[mapr-fluentd:children]
-mapr-core
+[mapr_fluentd:children]
+mapr_core
 
 # ElasticSearch
-[mapr-elasticsearch]
+[mapr_elasticsearch]
 10.0.0.xxx
 
 # Kibana
-[mapr-kibana]
+[mapr_kibana]
 10.0.0.xxx
 

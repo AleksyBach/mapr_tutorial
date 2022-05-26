@@ -1,5 +1,5 @@
-mapr_release_url: http://package.mapr.com/releases/v6.1.0
-mapr_ecosystem_url: http://package.mapr.com/releases/MEP/MEP-6.1.0/
+mapr_release_url: http://package.mapr.com/releases/v6.0.1
+mapr_ecosystem_url: http://package.mapr.com/releases/MEP/MEP-6.0.1/
 mapr_gpg_url: http://package.mapr.com/releases/pub/maprgpg.key
 mapr_gpg_check: yes
 
@@ -59,7 +59,7 @@ https_custom_rootca: /root/testsslkeys/rootCA.pem
 https_custom_certs_force_update: True
 
 # Security at rest - also known as DARE - Only for secure clusters
-security_encryption_rest: True
+security_encryption_rest: False
 
 # MapR-Core security
 # Options: none, maprsasl, kerberos

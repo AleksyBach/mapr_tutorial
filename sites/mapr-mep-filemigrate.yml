@@ -1,9 +1,9 @@
 - import_playbook: mapr-include-vars.yml
 - name: Install Filemigrate
-  hosts: mapr-filemigrate
+  hosts: mapr_filemigrate
   roles:
     - ../roles/mapr-filemigrate-install
 - name: Uninstall Filemigrate
-  hosts: all:!mapr-filemigrate
+  hosts: all:!mapr_filemigrate
   roles:
     - ../roles/mapr-filemigrate-uninstall

@@ -6,38 +6,38 @@
 - name: Setup Hive Variables
   hosts: all
   vars:
-      num_mysql_hosts: "{{ groups['ext-mysql']|length }}"
+      num_mysql_hosts: "{{ groups['ext_mysql']|length }}"
   roles:
     - ../roles/mapr-hive-vars
 - name: Install Spark on YARN
-  hosts: mapr-spark-yarn
+  hosts: mapr_spark_yarn
   roles:
     - ../roles/mapr-spark-yarn-install
 - name: Uninstall Spark on YARN
-  hosts: all:!mapr-spark-yarn
+  hosts: all:!mapr_spark_yarn
   roles:
     - ../roles/mapr-spark-yarn-uninstall
 - name: Install Spark Thrift Server
-  hosts: mapr-spark-thriftserver
+  hosts: mapr_spark_thriftserver
   roles:
     - ../roles/mapr-spark-thriftserver-install
 - name: Uninstall Spark Thrift Server
-  hosts: all:!mapr-spark-thriftserver
+  hosts: all:!mapr_spark_thriftserver
   roles:
     - ../roles/mapr-spark-thriftserver-uninstall
 - name: Install Spark History Server
-  hosts: mapr-spark-historyserver
+  hosts: mapr_spark_historyserver
   roles:
     - ../roles/mapr-spark-historyserver-install
 - name: Uninstall Spark History Server
-  hosts: all:!mapr-spark-historyserver
+  hosts: all:!mapr_spark_historyserver
   roles:
     - ../roles/mapr-spark-historyserver-uninstall
 - name: Get Spark Shuffle Sort JAR from first Spark node
-  hosts: mapr-spark-yarn[0]
+  hosts: mapr_spark_yarn[0]
   roles:
     - {role: ../roles/mapr-spark-yarn-shuffle-retrieve, when: yarn_spark_shuffle }
 - name: Upload Spark Shuffle Sort JAR to all YARN node managers
-  hosts: mapr-nodemanager
+  hosts: mapr_nodemanager
   roles:
     - {role: ../roles/mapr-spark-yarn-shuffle-distribute, when: yarn_spark_shuffle }

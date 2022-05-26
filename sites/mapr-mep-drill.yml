@@ -4,18 +4,18 @@
   roles:
     - ../roles/mapr-configure-vars-zk
 - name: Install Drill Standalone
-  hosts: mapr-drill-standalone
+  hosts: mapr_drill_standalone
   roles:
     - ../roles/mapr-drill-standalone-install
 - name: Uninstall Drill Standalone
-  hosts: all:!mapr-drill-standalone
+  hosts: all:!mapr_drill_standalone
   roles:
     - ../roles/mapr-drill-standalone-uninstall
 - name: Install Drill on YARN
-  hosts: mapr-drill-yarn
+  hosts: mapr_drill_yarn
   roles:
     - ../roles/mapr-drill-yarn-install
 - name: Uninstall Drill on YARN
-  hosts: all:!mapr-drill-yarn
+  hosts: all:!mapr_drill_yarn
   roles:
     - ../roles/mapr-drill-yarn-uninstall

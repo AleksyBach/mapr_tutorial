@@ -9,7 +9,7 @@
 #
 - import_playbook: mapr-include-vars.yml
 - name: Register vars required for remote cluster setup
-  hosts: remote-crosscluster
+  hosts: remote_crosscluster
   tasks:
   - shell: "head -n 1 /opt/mapr/conf/mapr-clusters.conf"
     register: mapr_clusters_conf_line
@@ -24,21 +24,21 @@
     register: remote_cluster_name
     check_mode: no
 - name: Run crosscluster setup
-  hosts: mapr-core
+  hosts: mapr_core
   tasks:
   - debug: msg="Cluster name {{ cluster_name }}"
   - debug: msg="Remote cluster name {{ hostvars[item]['remote_cluster_name'].stdout }}"
-    with_items: "{{ groups['remote-crosscluster'] }}"
+    with_items: "{{ groups['remote_crosscluster'] }}"
   - debug: msg="Remote mapr-clusters.conf {{ hostvars[item]['mapr_clusters_conf_line'].stdout }}"
-    with_items: "{{ groups['remote-crosscluster'] }}"
+    with_items: "{{ groups['remote_crosscluster'] }}"
   #  - debug: msg="Remote maprserverticket {{ hostvars[item]['mapr_serverticket_line'].stdout }}"
-  #    with_items: "{{ groups['remote-crosscluster'] }}"
+  #    with_items: "{{ groups['remote_crosscluster'] }}"
   - name: "Add cluster to mapr-clusters.conf"
     lineinfile: dest=/opt/mapr/conf/mapr-clusters.conf regexp="^{{ hostvars[item]['remote_cluster_name'].stdout }}" line="{{ hostvars[item]['mapr_clusters_conf_line'].stdout }}"
-    with_items: "{{ groups['remote-crosscluster'] }}"
+    with_items: "{{ groups['remote_crosscluster'] }}"
   - name: "Add cluster to maprserverticket"
     lineinfile: dest=/opt/mapr/conf/maprserverticket regexp="^{{ hostvars[item]['remote_cluster_name'].stdout }}" line="{{ hostvars[item]['mapr_serverticket_line'].stdout }}"
-    with_items: "{{ groups['remote-crosscluster'] }}"
+    with_items: "{{ groups['remote_crosscluster'] }}"
   - name: "Add cluster to mapruserticket"
     lineinfile: dest=/opt/mapr/conf/mapruserticket regexp="^{{ hostvars[item]['remote_cluster_name'].stdout }}" line="{{ hostvars[item]['mapr_userticket_line'].stdout }}"
-    with_items: "{{ groups['remote-crosscluster'] }}"
+    with_items: "{{ groups['remote_crosscluster'] }}"

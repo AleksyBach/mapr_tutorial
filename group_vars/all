@@ -1,5 +1,5 @@
-mapr_release_url: http://package.mapr.com/releases/v6.1.0
-mapr_ecosystem_url: http://package.mapr.com/releases/MEP/MEP-6.1.0/
+mapr_release_url: http://package.mapr.com/releases/v6.0.1
+mapr_ecosystem_url: http://package.mapr.com/releases/MEP/MEP-6.0.1/
 mapr_gpg_url: http://package.mapr.com/releases/pub/maprgpg.key
 mapr_gpg_check: yes
 
@@ -12,7 +12,7 @@ oracle_jdk_url: http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda
 use_ntp: True
 
 hadoop_version: 2.7.0
-cluster_name: demo.mapr.com
+cluster_name: m2.ipabhome.local
 # required when aborted in wrong stage or changing security type
 force_zookeeper_restart: True
 force_warden_restart: True
@@ -27,7 +27,7 @@ virtual_machine: False
 local_tmp_path: /tmp/mapr-ansible
 
 # mapr_subnets is optional, if required just remove #
-#mapr_subnets: 10.0.0.0/24
+#mapr_subnets: 192.168.1.0/24
 mapr_create_user: True
 mapr_user: mapr
 mapr_group: mapr
@@ -61,14 +61,14 @@ https_custom_rootca: /root/testsslkeys/rootCA.pem
 https_custom_certs_force_update: True
 
 # Security at rest - also known as DARE - Only for secure clusters
-security_encryption_rest: True
+security_encryption_rest: False
 
 # MapR-Core security
 # Options: none, maprsasl, kerberos
 mapr_security: "{{ security_all }}"
 
 # Additional information for Kerberos
-mapr_kerberos_realm: PS.MAPR.COM
+mapr_kerberos_realm: IPABHOME.LOCAL
 mapr_kerberos_local_keytabs_dir: /mnt/c/Projects/keytabs
 # This is a wrkaround, since CLDB uses always mapr-user 'mapr' in CLDB principal, don't change
 mapr_user_cldb_principal: mapr
@@ -81,7 +81,7 @@ impala_security: none
 # Hive security: none, maprsasl, pam or kerberos
 hive_server_security: "pam"
 hive_metastore_security: "{{ security_all }}"
-hive_server_ui_ssl: True
+hive_server_ui_ssl: False
 hive_server_jdbc_ssl: False
 # Drill security (only standalone): none, maprsasl, kerberos
 drill_security: "{{ security_all }}"
@@ -91,22 +91,22 @@ hbase_thrift_rest_security: "{{ security_all }}"
 httpfs_security: "{{ security_all }}"
 # Oozie: none, maprsasl, kerberos
 oozie_security: "{{ security_all }}"
-oozie_ssl: True
+oozie_ssl: False
 # Sqoop2: none, maprsasl, kerberos
 sqoop_security: "{{ security_all }}"
 # Spark settings, enable only on secure cluster, otherwise installation fails
-spark_authenticate: True
-spark_ssl_encryption: True
-spark_sasl_encryption: True
+spark_authenticate: False
+spark_ssl_encryption: False
+spark_sasl_encryption: False
 # Hue will use PAM auth and depending what was configured for other components use these settings
-hue_ssl: True
-hbase_thrift_rest_ssl: True
+hue_ssl: False
+hbase_thrift_rest_ssl: False
 
 # Spyglass metrics collect
 # Options: minimal or all
 spyglass_metrics_collect: all
 spyglass_opentsdb_max_memory_in_mb: 2048
-spyglass_elasticsearch_secure: True
+spyglass_elasticsearch_secure: False
 spyglass_log_password: maprpassword
 # Grafana Password is required to setup Grafana dashboards and datasources
 spyglass_grafana_password: maprpassword
@@ -119,7 +119,7 @@ oracle_jdbc_driver_path: /Users/chufe/Downloads/ojdbc6.jar
 # Types are: embedded, oracle, mysql
 hue_db_type: mysql
 hue_db_mysql_create_schema_and_user: True
-# set only for Oracle or when MySQL is external, comment out it should take host from installed DB (ext-mysql)
+# set only for Oracle or when MySQL is external, comment out it should take host from installed DB (ext_mysql)i
 #hue_db_host: oracle.db
 hue_db_user: hue
 hue_db_password: maprpassword
