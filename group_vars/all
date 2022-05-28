@@ -3,62 +3,62 @@ mapr_ecosystem_url: http://package.mapr.com/releases/MEP/MEP-6.0.1/
 mapr_gpg_url: http://package.mapr.com/releases/pub/maprgpg.key
 mapr_gpg_check: yes
 
-# JDK choose: openjdk18 or oraclejdk18
+### JDK choose: openjdk18 or oraclejdk18
 jdk: openjdk18
-#jdk_folder: /opt/java/jdk1.8.0_111
-# redhat openjdk java path
+###jdk_folder: /opt/java/jdk1.8.0_111
+### redhat openjdk java path
 jdk_folder: /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64
 oracle_jdk_url: http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz
 use_ntp: True
 
 hadoop_version: 2.7.0
 cluster_name: m2.ipabhome.local
-# required when aborted in wrong stage or changing security type
+### required when aborted in wrong stage or changing security type
 force_zookeeper_restart: True
 force_warden_restart: True
 force_reconfigure_sh: True
-# if true only one node at once will be restarted, if false all nodes will be restarted at the same time.
+### if true only one node at once will be restarted, if false all nodes will be restarted at the same time.
 rolling_restart: False
-# Wait for container resync. only with rolling restarts, do not enable at first installation
+### Wait for container resync. only with rolling restarts, do not enable at first installation
 graceful_restart: False
 warden_restart_wait_time: 30
 virtual_machine: False
-# Used on Ansible host to store tmp files
+### Used on Ansible host to store tmp files
 local_tmp_path: /tmp/mapr-ansible
 
-# mapr_subnets is optional, if required just remove #
-#mapr_subnets: 192.168.1.0/24
+### mapr_subnets is optional, if required just remove #
+###mapr_subnets: 192.168.1.0/24
 mapr_create_user: True
 mapr_user: mapr
 mapr_group: mapr
-# UID only for creation required.
+### UID only for creation required.
 mapr_group_gid: 5000
 mapr_user_uid: 5000
 
-# YARN settings
-# Enables YARN log aggregation
+### YARN settings
+### Enables YARN log aggregation
 yarn_log_aggregation: False
-# Maximum size for one YARN container
+### Maximum size for one YARN container
 yarn_max_container_allocation_in_mb: 131072
-# Create local dir for NodeManager temporary data like shuffle and sort. This requires mapr-nfs on the same node!
+### Create local dir for NodeManager temporary data like shuffle and sort. This requires mapr-nfs on the same node!
 yarn_local_dir_to_maprfs: False
-yarn_spark_shuffle: True
+yarn_spark_shuffle: False
 
-# If set value will be overriden
-#drill_max_proc_mem_in_mb: 20
+### If set value will be overriden
+### drill_max_proc_mem_in_mb: 20
 
 ####### Enable security features ##########
 # Default value for all components: mapr core and ecosystem
 # Options: none, maprsasl, kerberos
-security_all: maprsasl
+security_all: none
 
-# Custom SSL certificates for all components. Certificates must be <fqdn>.pem in given folder. No password in certicates supported, use ansible-vault.
+### Custom SSL certificates for all components. Certificates must be <fqdn>.pem in given folder. No password in certicates supported, use ansible-vault.
 https_custom_certs_enabled: False
-# If certificate and private key is is same file, just add same path for both.
+### If certificate and private key is same file, just add same path for both.
 https_custom_certs_path: /root/testsslkeys/crt/
 https_custom_private_key_path: /root/testsslkeys/key/
 https_custom_rootca: /root/testsslkeys/rootCA.pem
-https_custom_certs_force_update: True
+https_custom_certs_force_update: False
 
 # Security at rest - also known as DARE - Only for secure clusters
 security_encryption_rest: False
@@ -107,9 +107,9 @@ hbase_thrift_rest_ssl: False
 spyglass_metrics_collect: all
 spyglass_opentsdb_max_memory_in_mb: 2048
 spyglass_elasticsearch_secure: False
-spyglass_log_password: maprpassword
+spyglass_log_password: mapr123
 # Grafana Password is required to setup Grafana dashboards and datasources
-spyglass_grafana_password: maprpassword
+spyglass_grafana_password: mapr123
 ###########################################
 
 oracle_jdbc_driver_path: /Users/chufe/Downloads/ojdbc6.jar
@@ -118,30 +118,30 @@ oracle_jdbc_driver_path: /Users/chufe/Downloads/ojdbc6.jar
 # Packages: instant-client-basic and instant-client-sdk-linux
 # Types are: embedded, oracle, mysql
 hue_db_type: mysql
-hue_db_mysql_create_schema_and_user: True
+hue_db_mysql_create_schema_and_user: False
 # set only for Oracle or when MySQL is external, comment out it should take host from installed DB (ext_mysql)i
 #hue_db_host: oracle.db
-hue_db_user: hue
-hue_db_password: maprpassword
+#hue_db_user: hue
+hue_db_password: mapr123
 # For Oracle add SID here
 hue_db_schema: hue
-# MySQL: 3306 / Oracle: 1521
-#hue_db_port: 1521
+ MySQL: 3306 / Oracle: 1521
+hue_db_port: 1521
 hue_db_port: 3306
 
 # move the spill from the local file system (/tmp) to a mapr fs local volume
 drill_maprspill: False
 # drill pstore options are none, db or zk
-drill_pstore: db
-#drillbit_service_env: "DRILLBIT_MAX_PROC_MEM=5120m,DRILL_HEAP=3072m,DRILL_MAX_DIRECT_MEMORY=1024m,DRILLBIT_CODE_CACHE_SIZE=512m"
-#drill_heap_size_in_mb: 1536
+drill_pstore: none
+drillbit_service_env: "DRILLBIT_MAX_PROC_MEM=5120m,DRILL_HEAP=3072m,DRILL_MAX_DIRECT_MEMORY=1024m,DRILLBIT_CODE_CACHE_SIZE=512m"
+drill_heap_size_in_mb: 1536
 
 # Types are: embedded, oracle, mysql
 hive_db_type: mysql
 hive_with_tez: True
 hive_db_mysql_create_schema_and_user: True
 hive_db_user: hive
-hive_db_password: maprpassword
+hive_db_password: mapr123
 hive_db_schema: hive
 # Uses hadoop credential to store the password
 hive_db_encrypt_password: False

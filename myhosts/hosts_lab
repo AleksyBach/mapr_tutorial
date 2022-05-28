@@ -91,9 +91,9 @@ node1
 
 # NFS
 [mapr_nfs_v3]
-node1
-node2
-node3
+#node1
+#node2
+#node3
 
 # MapR Fuse Posix Client Basic
 [mapr_posix_client_basic]
