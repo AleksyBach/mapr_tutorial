@@ -3,6 +3,8 @@
 
 This is a collection of Ansible scripts which help you to setup a MapR-cluster.
 
+Used on my Own (AleksyBach) for training purpouse only
+
 Maintainer: Carsten Hufe - Lead Data Engineer @ MapR
 
 Changes, bugs and feature requests can be requested by using the Github issue tracker.
