@@ -3,7 +3,7 @@
     host=node1
     port=1521
     user=hue
-    password=maprpassword
+    password=mapr123
     name=MAPR
     options={'threaded':true}
 

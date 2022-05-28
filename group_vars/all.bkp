@@ -3,54 +3,54 @@ mapr_ecosystem_url: http://package.mapr.com/releases/MEP/MEP-6.1.0/
 mapr_gpg_url: http://package.mapr.com/releases/pub/maprgpg.key
 mapr_gpg_check: yes
 
-### JDK choose: openjdk18 or oraclejdk18
+# JDK choose: openjdk18 or oraclejdk18
 jdk: openjdk18
-###jdk_folder: /opt/java/jdk1.8.0_111
-### redhat openjdk java path
+#jdk_folder: /opt/java/jdk1.8.0_111
+# redhat openjdk java path
 jdk_folder: /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64
 oracle_jdk_url: http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz
 use_ntp: True
 
 hadoop_version: 2.7.0
-cluster_name: m2.ipabhome.local
-### required when aborted in wrong stage or changing security type
+cluster_name: demo.mapr.com
+# required when aborted in wrong stage or changing security type
 force_zookeeper_restart: True
 force_warden_restart: True
 force_reconfigure_sh: True
-### if true only one node at once will be restarted, if false all nodes will be restarted at the same time.
+# if true only one node at once will be restarted, if false all nodes will be restarted at the same time.
 rolling_restart: False
-### Wait for container resync. only with rolling restarts, do not enable at first installation
+# Wait for container resync. only with rolling restarts, do not enable at first installation
 graceful_restart: False
 warden_restart_wait_time: 30
 virtual_machine: False
-### Used on Ansible host to store tmp files
+# Used on Ansible host to store tmp files
 local_tmp_path: /tmp/mapr-ansible
 
-### mapr_subnets is optional, if required just remove #
-###mapr_subnets: 10.0.0.0/24
+# mapr_subnets is optional, if required just remove #
+#mapr_subnets: 10.0.0.0/24
 mapr_create_user: True
 mapr_user: mapr
 mapr_group: mapr
-### UID only for creation required.
+# UID only for creation required.
 mapr_group_gid: 5000
 mapr_user_uid: 5000
 
-### YARN settings
-### Enables YARN log aggregation
+# YARN settings
+# Enables YARN log aggregation
 yarn_log_aggregation: False
-### Maximum size for one YARN container
-yarn_max_container_allocation_in_mb: 4096
-### Create local dir for NodeManager temporary data like shuffle and sort. This requires mapr-nfs on the same node!
+# Maximum size for one YARN container
+yarn_max_container_allocation_in_mb: 131072
+# Create local dir for NodeManager temporary data like shuffle and sort. This requires mapr-nfs on the same node!
 yarn_local_dir_to_maprfs: False
 yarn_spark_shuffle: True
 
-### If set value will be overriden
-###drill_max_proc_mem_in_mb: 20
+# If set value will be overriden
+#drill_max_proc_mem_in_mb: 20
 
 ####### Enable security features ##########
-### Default value for all components: mapr core and ecosystem
-### Options: none, maprsasl, kerberos
-security_all: none
+# Default value for all components: mapr core and ecosystem
+# Options: none, maprsasl, kerberos
+security_all: maprsasl
 
 # Custom SSL certificates for all components. Certificates must be <fqdn>.pem in given folder. No password in certicates supported, use ansible-vault.
 https_custom_certs_enabled: False
@@ -61,7 +61,7 @@ https_custom_rootca: /root/testsslkeys/rootCA.pem
 https_custom_certs_force_update: True
 
 # Security at rest - also known as DARE - Only for secure clusters
-security_encryption_rest: False
+security_encryption_rest: True
 
 # MapR-Core security
 # Options: none, maprsasl, kerberos
@@ -119,7 +119,7 @@ oracle_jdbc_driver_path: /Users/chufe/Downloads/ojdbc6.jar
 # Types are: embedded, oracle, mysql
 hue_db_type: mysql
 hue_db_mysql_create_schema_and_user: True
-# set only for Oracle or when MySQL is external, comment out it should take host from installed DB (ext_mysql)
+# set only for Oracle or when MySQL is external, comment out it should take host from installed DB (ext-mysql)
 #hue_db_host: oracle.db
 hue_db_user: hue
 hue_db_password: hue
@@ -179,7 +179,7 @@ oozie_smtp_password:
 # passwd is mapr
 mapr_passwd: $6$GzlcP5ei$E6P9QM40O6KJFLZ3wMcg3jzQBNxGXrf8yc77CbCmf0KtFSxK0mpCParhc3WVNEAm4fHKPAqyRV9rsiF6DAFlW0
 
-disks: /dev/sdb,/dev/sdc,/dev/sdd
+disks: /dev/nvme1n1,/dev/nvme2n1,/dev/nvme3n1
 disk_storage_pool_size: 3
 
 # Third party components

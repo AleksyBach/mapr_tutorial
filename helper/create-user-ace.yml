@@ -1,6 +1,6 @@
  - hosts: all
    vars:
-      mapr_passwd: maprpassword
+      mapr_passwd: mapr123
 
    tasks:
     - name: Create financegroup Group

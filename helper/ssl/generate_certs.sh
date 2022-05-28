@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CERT_PATH=~/testsslkeys
-CLUSTER_NAME=demo.mapr.com
+CLUSTER_NAME=m2.ipabhome.local
 RESULT=$(ansible -i myhosts/hosts_3nodes -m shell -a 'echo "|host=$(hostname --ip-address)"' all)
 
 for i in $(echo $RESULT | tr "|" "\n")
