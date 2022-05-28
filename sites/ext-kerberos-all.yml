@@ -1,5 +1,0 @@
----
-- import_playbook: ext-kerberos-sssd-setup.yml
-- import_playbook: ext-kerberos-createadusers.yml
-- import_playbook: ext-kerberos-keytabs-ad-generate.yml
-- import_playbook: ext-kerberos-keytabs-verify.yml

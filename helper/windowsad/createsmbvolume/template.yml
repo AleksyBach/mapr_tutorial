@@ -1,7 +1,0 @@
-volumename: testcarsten
-readgroups:
-  - maprgrp
-  - domain users
-writegroups:
-  - maprgrp
-  - domain users

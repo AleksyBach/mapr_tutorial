@@ -1,5 +1,0 @@
-- name: Group vars
-  hosts: all
-  tasks:
-    - name: include global config
-      include_vars: file="../group_vars/all"

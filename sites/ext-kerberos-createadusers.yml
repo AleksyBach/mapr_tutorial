@@ -1,6 +1,0 @@
----
-- name: Create AD user
-  hosts: ext_kerberos
-  roles:
-    - ../roles/common-openjdk18
-    - ../roles/ext-ad-createusers

@@ -1,4 +1,0 @@
----
-# Install Flume
-- name: Install mapr-flume
-  package: name=mapr-flume state=present

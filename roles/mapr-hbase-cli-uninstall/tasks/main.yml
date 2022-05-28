@@ -1,4 +1,0 @@
----
-# Uninstall HBase CLI
-- name: Uninstall mapr-hbase
-  package: name=mapr-hbase state=absent

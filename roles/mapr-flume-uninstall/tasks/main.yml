@@ -1,4 +1,0 @@
----
-# Uninstall Flume
-- name: Uninstall mapr-flume
-  package: name=mapr-flume state=absent

@@ -1,3 +1,0 @@
----
-- import_playbook: ../../sites/mapr-include-vars.yml
-- import_playbook: ../../sites/common.yml

@@ -1,9 +1,0 @@
-- import_playbook: mapr-include-vars.yml
-- name: Install R Lang
-  hosts: ext_rlang
-  roles:
-    - ../roles/ext-rlang
-- name: Install R Studio Server Pro
-  hosts: ext_rstudioserverpro
-  roles:
-    - ../roles/ext-rstudioserverpro

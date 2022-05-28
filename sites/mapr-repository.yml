@@ -1,5 +1,0 @@
-- import_playbook: mapr-include-vars.yml
-- name: Setup MapR repositories
-  hosts: mapr_core
-  roles:
-    - ../roles/mapr-configure-repository

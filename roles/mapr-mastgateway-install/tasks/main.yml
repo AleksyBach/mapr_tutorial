@@ -1,4 +1,0 @@
----
-# Install MAST Gateway
-- name: Install mapr-mastgateway
-  package: name=mapr-mastgateway state=present
