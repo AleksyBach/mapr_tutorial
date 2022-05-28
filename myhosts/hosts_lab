@@ -4,9 +4,9 @@
 
 # ALIASES does NOT work with ROLLING upgrades!
 [all]
-node1 ansible_host=10.250.51.141 ansible_user=root
-node2 ansible_host=10.250.51.142 ansible_user=root
-node3 ansible_host=10.250.51.143 ansible_user=root
+node1 ansible_host=mapr01b.ipabhome.local ansible_user=root
+node2 ansible_host=mapr02b.ipabhome.local ansible_user=root
+node3 ansible_host=mapr03b.ipabhome.local ansible_user=root
 
 [unprovision]
 
@@ -39,18 +39,18 @@ node2
 
 # Kafka API for MapR-Streams
 [mapr-kafka]
-node1
-node2
-node3
+#node1
+#node2
+#node3
 
 # Gateway for Streams and MapR-DB
 [mapr-gateway]
-node1
-node2
-node3
+#node1
+#node2
+#node3
 
 [mapr-mastgateway]
-node3
+#node3
 
 # MapR Control System
 [mapr-mcs]
@@ -77,23 +77,23 @@ node1
 
 # Spark on YARN
 [mapr-spark-yarn]
-node1
-node2
-node3
+#node1
+#node2
+#node3
 
 # Spark ThriftServer
 [mapr-spark-thriftserver]
-node3
+#node3
 
 # Spark HistoryServer
 [mapr-spark-historyserver]
-node2
+#node2
 
 # NFS
 [mapr-nfs-v3]
-node1
-node2
-node3
+#node1
+#node2
+#node3
 
 # MapR Fuse Posix Client Basic
 [mapr-posix-client-basic]
@@ -107,9 +107,9 @@ node3
 
 # Apache Drill
 [mapr-drill-standalone]
-node1
-node2
-node3
+#node1
+#node2
+#node3
 
 # Apache Drill
 [mapr-drill-yarn]
@@ -122,9 +122,9 @@ node3
 
 # HBase CLI
 [mapr-hbase-cli]
-node1
-node2
-node3
+#node1
+#node2
+#node3
 
 # HBase REST and Thrift
 [mapr-hbase-thrift-rest]
@@ -132,19 +132,19 @@ node3
 
 # Hive CLI
 [mapr-hive-cli]
-node1
-node2
-node3
+#node1
+#node2
+#node3
 
 # Hive Meta Store
 [mapr-hive-metastore]
-node1
-node2
+#node1
+#node2
 
 # Hive Server2
 [mapr-hive-server2]
-node1
-node2
+#node1
+#node2
 
 # Hive WebHCat
 [mapr-hive-webhcat]
@@ -152,11 +152,11 @@ node2
 
 # HttpFS
 [mapr-httpfs]
-node1
-node2
+#node1
+#node2
 
 [mapr-hue]
-node3
+#node3
 
 # Sqoop1
 [mapr-sqoop1]
@@ -200,26 +200,26 @@ node3
 #node2
 
 [mapr-kafka-connect-jdbc]
-node2
+#node2
 
 [mapr-kafka-rest]
-node1
+#node1
 
 [mapr-kafka-ksql]
-node1
-node2
-node3
+#node1
+#node2
+#node3
 
 [mapr-data-access-gateway]
-node3
+#node3
 
 # CollectD
 [mapr-collectd:children]
-mapr-core
+#mapr-core
 
 # OpenTSDB
 [mapr-opentsdb]
-node1
+#node1
 
 # Custom OpenTSDB, do NOT install on same node as mapr-opentsdb
 [mapr-opentsdb-custom]
@@ -227,20 +227,20 @@ node1
 
 # Grafana
 [mapr-grafana]
-node1
+#node1
 
 # FluentD
 [mapr-fluentd:children]
-mapr-core
+#mapr-core
 
 # ElasticSearch
 [mapr-elasticsearch]
-node2
-node3
+#node2
+#node3
 
 # Kibana
 [mapr-kibana]
-node3
+#node3
 
 
 
