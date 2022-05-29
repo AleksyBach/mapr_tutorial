@@ -59,7 +59,7 @@ node1
 # YARN resource manager
 [mapr_resourcemanager]
 node1
-#node2
+#node3
 
 # Contains YARN Node Manager
 [mapr_nodemanager]
@@ -87,7 +87,7 @@ node1
 
 # Spark HistoryServer
 [mapr_spark_historyserver]
-#node2
+#node1
 
 # NFS
 [mapr_nfs_v3]
@@ -103,7 +103,9 @@ node1
 
 # MapR Fuse Posix Client Platinum
 [mapr_posix_client_platinum]
-
+#node1
+#node2
+#node3
 
 # Apache Drill
 [mapr_drill_standalone]
@@ -113,6 +115,9 @@ node1
 
 # Apache Drill
 [mapr_drill_yarn]
+#node1
+#node2
+#node3
 
 # Flume
 [mapr_flume]

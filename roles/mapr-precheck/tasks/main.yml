@@ -2,17 +2,21 @@
 - name: MySQL - only one node is supported
   fail: msg="Only one MySQL node is allowed in [ext_mysql], alternatevily no node and set db hosts"
   when: (groups['ext_mysql']|length) > 1
+
 - name: HistoryServer - only one node is supported
   fail: msg="Only one HistoryServer node is allowed in [mapr_historyserver]"
   when: (groups['mapr_historyserver']|length) > 1
+
 - name: Check MapR security type
   fail: msg="mapr_security must be one of none, maprsasl or kerberos"
   when: mapr_security not in ('none', 'maprsasl', 'kerberos')
+
 - name: Check MapR system user
   shell: "id {{ mapr_user }}"
   failed_when: false
   register: result_id_mapruser
   check_mode: no
+
 - name: MapR user exists?
   fail: msg="{{ mapr_user }} user does not exist on target system and mapr_create_user is set to false"
   when: (not mapr_create_user) and result_id_mapruser.rc == 1
@@ -47,6 +51,7 @@
   register: result_oracle_instantclientbasic
   when: (groups['mapr_hue'] is defined and groups['mapr_hue']|length) > 0 and hue_db_type == 'oracle' and inventory_hostname in groups["mapr_hue"]
   check_mode: no
+
 - name: Hue Oracle Instant Basic Client
   fail: msg="oracle-instantclient-basic is required on Hue node, please download from http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html"
   when: (groups['mapr_hue'] is defined and groups['mapr_hue']|length) > 0 and hue_db_type == 'oracle' and inventory_hostname in groups["mapr_hue"] and result_oracle_instantclientbasic.rc != 0
@@ -58,14 +63,17 @@
   register: result_oracle_instantclientdevel
   when: (groups['mapr_hue'] is defined and groups['mapr_hue']|length) > 0 and hue_db_type == 'oracle' and inventory_hostname in groups["mapr_hue"]
   check_mode: no
+
 - name: Hue Oracle Instant DevelClient
   fail: msg="oracle-instantclient-devel is required on Hue node, please download from http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html"
   when: (groups['mapr_hue'] is defined and groups['mapr_hue']|length) > 0 and hue_db_type == 'oracle' and inventory_hostname in groups["mapr_hue"] and result_oracle_instantclientdevel.rc != 0
   any_errors_fatal: true
+
 - name: Custom OpenTSDB must NOT be installed on OpenTSDB node
   fail: msg="Custom OpenTSDB [mapr_opentsdb_custom] must NOT be installed on OpenTSDB node [mapr_opentsdb]"
   when: groups["mapr_opentsdb_custom"] is defined and inventory_hostname in groups["mapr_opentsdb_custom"] and inventory_hostname in groups["mapr_opentsdb"]
   any_errors_fatal: true
+
 - name: When enabling encryption at rest, mapr_security must not be 'none'
   fail: msg="When enabling encryption at rest, mapr_security must not be 'none'"
   when: mapr_security == 'none' and security_encryption_rest

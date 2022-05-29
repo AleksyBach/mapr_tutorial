@@ -1,14 +1,17 @@
 # Uninstall POSIX clients first, otherwise if user changes from NFS to Fuse it will conflict.
 - import_playbook: mapr-include-vars.yml
+
 - name: Uninstall NFS v3
   hosts: all:!mapr_nfs_v3
   roles:
     - ../roles/mapr-nfs-v3-uninstall
+
 - name: Uninstall mapr-posix-client-basic (FUSE)
   hosts: all:!mapr_posix_client_basic
   roles:
     - ../roles/mapr-patch-posix-client-basic-uninstall
     - ../roles/mapr-posix-client-basic-uninstall
+
 - name: Uninstall mapr-posix-client-platinum (FUSE)
   hosts: all:!mapr_posix_client_platinum
   roles:

@@ -27,7 +27,7 @@ virtual_machine: False
 local_tmp_path: /tmp/mapr-ansible
 
 ### mapr_subnets is optional, if required just remove #
-###mapr_subnets: 10.0.0.0/24
+###mapr_subnets: XXX.XXX.XXX.XXX/24
 mapr_create_user: True
 mapr_user: mapr
 mapr_group: mapr
@@ -68,7 +68,7 @@ security_encryption_rest: False
 mapr_security: "{{ security_all }}"
 
 # Additional information for Kerberos
-mapr_kerberos_realm: PS.MAPR.COM
+mapr_kerberos_realm: ipabhome.local
 mapr_kerberos_local_keytabs_dir: /mnt/c/Projects/keytabs
 # This is a wrkaround, since CLDB uses always mapr-user 'mapr' in CLDB principal, don't change
 mapr_user_cldb_principal: mapr
