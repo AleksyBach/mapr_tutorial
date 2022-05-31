@@ -5,37 +5,38 @@
 # ALIASES does NOT work with ROLLING upgrades!
 [all]
 node1 ansible_host=mapr01b.ipabhome.local ansible_user=root
-#node2 ansible_host=mapr02b.ipabhome.local ansible_user=root
-#node3 ansible_host=mapr03b.ipabhome.local ansible_user=root
+node2 ansible_host=mapr02b.ipabhome.local ansible_user=root
+node3 ansible_host=mapr03b.ipabhome.local ansible_user=root
 
 [unprovision]
 
 [common]
 node1
-#node2
-#node3
+node2
+node3
 
 [mapr_core]
 node1
-#node2
-#node3
+node2
+node3
 
 # Zookeeper
 [mapr_zookeeper]
 node1
-#node2
-#node3
+node2
+node3
 
 # Contains MapR FileServer (MFS)
 [mapr_fileserver]
 node1
-#node2
-#node3
+node2
+node3
 
 # Container Location DataBase
 [mapr_cldb]
 node1
-#node2
+node2
+node3
 
 # Kafka API for MapR-Streams
 [mapr_kafka]
@@ -45,8 +46,8 @@ node1
 
 # Gateway for Streams and MapR-DB
 [mapr_gateway]
-#node1
-#node2
+node1
+node2
 #node3
 
 [mapr_mastgateway]
@@ -64,8 +65,8 @@ node1
 # Contains YARN Node Manager
 [mapr_nodemanager]
 node1
-#node2
-#node3
+node2
+node3
 
 # Job History Server, IMPORTANT: only one
 [mapr_historyserver]

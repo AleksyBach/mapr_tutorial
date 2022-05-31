@@ -1,5 +1,5 @@
-mapr_release_url: http://package.mapr.com/releases/v6.1.0
-mapr_ecosystem_url: http://package.mapr.com/releases/MEP/MEP-6.1.0/
+mapr_release_url: http://package.mapr.com/releases/v6.0.0
+mapr_ecosystem_url: http://package.mapr.com/releases/MEP/MEP-4.0.0/
 mapr_gpg_url: http://package.mapr.com/releases/pub/maprgpg.key
 mapr_gpg_check: yes
 
@@ -14,9 +14,9 @@ use_ntp: True
 hadoop_version: 2.7.0
 cluster_name: m2.ipabhome.local
 ### required when aborted in wrong stage or changing security type
-force_zookeeper_restart: True
-force_warden_restart: True
-force_reconfigure_sh: True
+force_zookeeper_restart: False
+force_warden_restart: False
+force_reconfigure_sh: False
 ### if true only one node at once will be restarted, if false all nodes will be restarted at the same time.
 rolling_restart: False
 ### Wait for container resync. only with rolling restarts, do not enable at first installation
